@@ -38,19 +38,19 @@ int main(){
 ### Build Job 步驟詳解
 
 #### 1. Checkout code
-指令：`actions/checkout@v4`
+指令：`actions/checkout@v4`  
 功能：取得 repo 中的程式碼。
 
 #### 2. Compile C program (GCC)
-指令：`gcc main.c -o hello_c_app`
+指令：`gcc main.c -o hello_c_app`  
 功能：使用 GCC 編譯器，將 `main.c` 編譯成名為 `hello_c_app` 的可執行檔。
 
 #### 3. Run compiled application
-指令：`./hello_c_app`
+指令：`./hello_c_app`  
 功能：執行編譯後的可執行檔。此步驟會輸出程式的執行結果 (例如：`Hello...` 和 `160`)，並作為工作流程的驗證日誌。
 
 #### 4. Upload build artifact
-指令：`actions/upload-artifact@v4`
+指令：`actions/upload-artifact@v4`  
 功能：將編譯好的 `hello_c_app` 可執行檔上傳為名為 `hello-c-executable` 的建置成品 (Artifact)，方便使用者下載驗證。
 
 ## 如何運行與查看結果
