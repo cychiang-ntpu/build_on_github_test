@@ -76,13 +76,13 @@ int main(){
 是的，這個 repo 的重點就是示範 CI/CD（比較偏 CI）。
 
 從 README 可以看到，它在示範如何用 GitHub Actions 自動做這幾件事： ￼
-	1.	自動建置 (Continuous Integration)
-	•	每次 push 到任何分支就觸發 workflow。
-	•	在 Ubuntu runner 上執行 gcc main.c -o hello_c_app 做編譯。
-	2.	自動執行與驗證程式
-	•	在 workflow 裡跑 ./hello_c_app，確認程式能正常輸出結果（Hello From C Build... 和 160）。
-	3.	自動上傳建置產物 (Artifact)
-	•	使用 actions/upload-artifact@v4，把編好的 hello_c_app 上傳成 artifact，讓人可以從 Actions 頁面下載。
+1. 自動建置 (Continuous Integration) 
+  * 每次 push 到任何分支就觸發 workflow。
+  * 在 Ubuntu runner 上執行 gcc main.c -o hello_c_app 做編譯。
+2. 自動執行與驗證程式
+  * 在 workflow 裡跑 ./hello_c_app，確認程式能正常輸出結果（Hello From C Build... 和 160）。
+3. 自動上傳建置產物 (Artifact)
+  * 使用 actions/upload-artifact@v4，把編好的 hello_c_app 上傳成 artifact，讓人可以從 Actions 頁面下載。
 
 所以這個 repo 比較像是：
 
