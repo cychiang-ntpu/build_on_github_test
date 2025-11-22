@@ -96,6 +96,8 @@ int main(){
 * 上傳到 GitHub Releases 或 GitHub Packages
 * 或是部署到某個測試伺服器（例如用 scp、ssh、docker push 等）。
 
+——-
+
 ### 問題2: .github/workflows/c_build.yml 這個是什麼？有沒有比較正式的名稱？
 #### 答案2:
 它就是 GitHub Actions 的工作流程設定檔（workflow file）。
@@ -112,13 +114,11 @@ int main(){
   * 在 GitHub UI 上顯示的工作流程名稱，則是檔案裡 name: 那一行（如果有寫）；
   * 檔名只是在 repo 裡方便你區分不同 workflow。
 
-
+——-
 
 ### 問題3: 這些 CI/CD 的 workflows actions 是誰提供的服務和資源？
 #### 答案3:
 這些東西大致上可以拆成三個「角色」來看，就比較清楚是誰提供什麼：
-
-⸻
 
 1. CI/CD 平台與跑程式的機器：GitHub 提供
   * 你在 .github/workflows/*.yml 裡寫的這些 workflows，實際上是交給 GitHub Actions 這個服務來執行。
@@ -130,7 +130,6 @@ int main(){
 簡單講：
 CI/CD 平台（GitHub Actions） + 執行工作用的機器（GitHub-hosted runners）都是 GitHub 提供的服務和資源。
 
-⸻
 
 2. workflow 檔（c_build.yml）：你／repo 作者提供
   * 	.github/workflows/c_build.yml 這個檔案裡寫的是：
@@ -147,12 +146,12 @@ CI/CD 平台（GitHub Actions） + 執行工作用的機器（GitHub-hosted runn
 uses: actions/checkout@v4
 uses: actions/upload-artifact@v4
 
-* actions/checkout、actions/upload-artifact 這些叫做 actions，就像「現成的小模組」。
-* 有些是 GitHub 官方維護 的（像上面那兩個）。
-* 也有很多是 社群 / 公司 / 個人開發者 放到 GitHub Marketplace 上給大家用的。
-
+  * actions/checkout、actions/upload-artifact 這些叫做 actions，就像「現成的小模組」。
+  * 有些是 GitHub 官方維護 的（像上面那兩個）。
+  * 也有很多是 社群 / 公司 / 個人開發者 放到 GitHub Marketplace 上給大家用的。
+  
 所以：
-* 平台與運算資源：GitHub 提供
-* 流程邏輯（workflow yml）：你或專案作者寫
-* actions 模組：GitHub 官方 + 社群共同提供
-
+  * 平台與運算資源：GitHub 提供
+  * 流程邏輯（workflow yml）：你或專案作者寫
+  * actions 模組：GitHub 官方 + 社群共同提供
+  
