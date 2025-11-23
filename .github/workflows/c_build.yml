@@ -18,11 +18,25 @@ jobs:
       - name: Compile C program (GCC)
         run: gcc main.c -o hello_c_app
         
-      # 步驟 3: 運行並驗證程式（直接執行程式）
-      - name: Run compiled application
-        run: ./hello_c_app
+      # 步驟 3: 下載文字檔
+      - name: Download text file with curl
+        run: curl -o cano.txt https://sherlock-holm.es/stories/plain-text/cano.txt
         
-      # 步驟 4: 上傳建置成品（可選）
+      # 步驟 4: 運行並驗證程式（直接執行程式）
+      - name: Run compiled application
+        run: ./hello_c_app cano.txt output.txt
+        
+      # 步驟 5: 檢驗輸出檔案是否正確
+      - name: Verify output file
+        run: |
+          if diff cano.txt output.txt > /dev/null; then
+            echo "✓ 測試通過: output.txt 與 cano.txt 內容相同"
+          else
+            echo "✗ 測試失敗: output.txt 與 cano.txt 內容不同"
+            exit 1
+          fi
+        
+      # 步驟 6: 上傳建置成品（可選）
       # 將編譯好的可執行檔儲存為 Artifact，供下載
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
