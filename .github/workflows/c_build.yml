@@ -43,3 +43,11 @@ jobs:
         with:
           name: by_pass_c-executable
           path: by_pass_c
+      
+      # 步驟 7: 上傳建置成品（可選）
+      # 將輸出檔案儲存為 Artifact，供下載
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-file
+          path: output.txt
