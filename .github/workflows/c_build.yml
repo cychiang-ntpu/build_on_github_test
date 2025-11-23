@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v4 
         
       # 步驟 2: 編譯 C 語言程式
-      # 使用 GCC 編譯 main.c，輸出名為 hello_c_app 的可執行檔
+      # 使用 GCC 編譯 main.c，輸出名為 by_pass_c 的可執行檔
       - name: Compile C program (GCC)
-        run: gcc main.c -o hello_c_app
+        run: gcc main.c -o by_pass_c
         
       # 步驟 3: 下載文字檔
       - name: Download text file with curl
@@ -24,7 +24,7 @@ jobs:
         
       # 步驟 4: 運行並驗證程式（直接執行程式）
       - name: Run compiled application
-        run: ./hello_c_app cano.txt output.txt
+        run: ./by_pass_c cano.txt output.txt
         
       # 步驟 5: 檢驗輸出檔案是否正確
       - name: Verify output file
@@ -41,5 +41,5 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: hello-c-executable
-          path: hello_c_app
+          name: by_pass_c-executable
+          path: by_pass_c
